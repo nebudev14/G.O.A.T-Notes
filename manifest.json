@@ -8,7 +8,10 @@
             "js": ["content.js"]
         }
     ],
-
+    "browser_action": {
+        "default_popup": "screenshot.html",
+        "default_title": "screenshot"
+    },
     "permissions": [
         "tabs"
     ]
