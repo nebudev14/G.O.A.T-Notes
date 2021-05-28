@@ -9,11 +9,10 @@
         }
     ],
     "browser_action": {
-        "default_popup": "screenshot.html",
-        "default_title": "screenshot"
+        "default_popup": "popup.html",
+        "default_title": "popup"
     },
     "permissions": [
         "tabs"
     ]
-    
 }

@@ -1,7 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('button').addEventListener('click', onclick, false)
+// Write code to receive event from button press?
 
-    function onclick() {
-        console.log("hello")
-    }
-}, false)
+export function onClick() {
+    console.log("hello");
+}
