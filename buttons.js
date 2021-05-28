@@ -1,11 +1,23 @@
 /** Button Handler */
 
-const takeSS = () => {
-    chrome.tabs.captureVisibleTab(null, {}, function(image) {
-        chrome.storage.local.set({'image': image}, function() {
-            console.log("logged image");
-        });
+const takeNote = () => {
+    
+    const takeSS = () => chrome.tabs.captureVisibleTab(null, {}, function(image) {
+        return image;
     });
+    
+    chrome.storage.local.get(['notes'], function(result) {
+        console.log(result.notes);
+        // note = {
+        //     img: takeSS()
+        // }
+        // result.push(note);
+        // chrome.storage.local.set({'notes': result}, function() {
+        //     console.log("logged new note for existing user");
+        //     console.log(result);
+        // });
+    })
+
 }
 
 const viewSS = () => {
@@ -14,6 +26,7 @@ const viewSS = () => {
         div.textContent = result.image;
         document.body.appendChild(div);
         console.log(result.image);
+        
     });
 }
 
@@ -21,7 +34,7 @@ const newTab = () => chrome.tabs.create({ url: chrome.runtime.getURL("view.html"
 // replace later
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('screenshot-button').addEventListener('click', takeSS, false);
+    document.getElementById('screenshot-button').addEventListener('click', takeNote, false);
     document.getElementById('view-button').addEventListener('click', newTab, false);
     document.getElementById('view-image').addEventListener('click', viewSS, false)
 }, false)
