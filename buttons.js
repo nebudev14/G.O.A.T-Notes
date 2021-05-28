@@ -2,9 +2,18 @@
 
 const takeSS = () => {
     chrome.tabs.captureVisibleTab(null, {}, function(image) {
+        chrome.storage.local.set({'image': image}, function() {
+            console.log("logged image");
+        });
+    });
+}
+
+const viewSS = () => {
+    chrome.storage.local.get(['image'], function(result) {
         const div = document.createElement('div');
-        div.textContent = image;
+        div.textContent = result.image;
         document.body.appendChild(div);
+        console.log(result.image);
     });
 }
 
@@ -14,4 +23,5 @@ const newTab = () => chrome.tabs.create({ url: chrome.runtime.getURL("view.html"
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('screenshot-button').addEventListener('click', takeSS, false);
     document.getElementById('view-button').addEventListener('click', newTab, false);
+    document.getElementById('view-image').addEventListener('click', viewSS, false)
 }, false)
