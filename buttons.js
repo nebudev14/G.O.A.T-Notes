@@ -1,8 +1,13 @@
 /** Button Handler */
 
 const takeSS = () => {
-    console.log("hello");
+    chrome.tabs.captureVisibleTab(null, {}, function(image) {
+        const div = document.createElement('div');
+        div.textContent = image;
+        document.body.appendChild(div);
+    });
 }
+
 const newTab = () => chrome.tabs.create({ url: chrome.runtime.getURL("view.html") });
 // replace later
 
