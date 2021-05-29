@@ -32,7 +32,7 @@ const viewSS = () => {
     });
 }
 
-const newTab = () => chrome.tabs.create({ url: chrome.runtime.getURL("view.html") });
+const newTab = () => chrome.tabs.create({ url: chrome.runtime.getURL("svelte/public/index.html") });
 // replace later
 
 document.addEventListener('DOMContentLoaded', function() {

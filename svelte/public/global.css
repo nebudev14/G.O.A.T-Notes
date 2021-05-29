@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,noto color emoji;
+    font-weight: 600;
+    font-size: 16px;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #201c1c;
+    --bg-secondary: #111827;
+    --transition-speed: 200ms;
+}
+
+html {background-color: black}
+
+main {
+    margin-left: 16rem;
+    padding: 1rem;
+}
+
+.navbar {
+    top: 0;
+    width: 16rem;
+    background-color: var(--bg-primary);
+    height: 100vh;
+	position: fixed;
+}
+
+.navbar-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .navbar-item {
+    width: 100%;
+  }
+  .navbar-link {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7);
+    transition: var(--transition-speed);
+  }
+  
+  .navbar-link:hover {
+    filter: grayscale(0%) opacity(1);
+    background: #312d2d;
+    color: var(--text-secondary);
+  }
+
+  .logo {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    font-size: 1.5rem;
+    letter-spacing: 0.3ch;
+    width: 100%;
+  }
+  
+.item-text {
+    margin-left: 1rem;
+}
+  
+.logo-text {
+    display: inline;
+    position: absolute;
+    left: -999px;
+    transition: var(--transition-speed);
+}
