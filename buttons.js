@@ -23,9 +23,9 @@ const takeNote = () => {
 }
 
 const viewSS = () => {
-    chrome.storage.local.get(['image'], function(result) {
+    chrome.storage.local.get(['notes'], function(result) {
         const div = document.createElement('div');
-        div.textContent = result.image;
+        div.textContent = result.notes[result.notes.length - 1].img;
         document.body.appendChild(div);
         console.log(result.image);
         
