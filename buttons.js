@@ -10,7 +10,7 @@ const takeNote = () => {
                 caption: document.getElementById("note").value,
                 base64: image
             }
-            document.getElementById("note").innerHTML = "";
+            document.getElementById("note").value = "";
             // updating saved notes
             let retrievedNotes = result.notes;
             retrievedNotes.push(note)
