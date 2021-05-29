@@ -2,16 +2,11 @@
     // huge json, will remove later
     import images from '../base64strings.json';
     import Note from './Note.svelte';
-    let notes = [
-        {
-            caption: "cool car",
-            base64: images.image1
-        },
-        {
-            caption: "eggs witnessing the death of their fellow egg",
-            base64: images.image2
-        }
-    ];
+    let notes = [""];
+    chrome.storage.local.get(['notes'], function(result) {
+        notes = result.notes
+    });
+    console.log(notes);  
     const handleClick = (e) => selected = e;
     let selected = 0;
 </script>

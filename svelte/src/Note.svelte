@@ -5,7 +5,7 @@
 </script>
 
 <div class="note-view">
-    <img src="data:image/jpeg;base64,{base64}" alt="captioned media">
+    <img src="{base64}" alt="captioned media">
     <h1>{caption}</h1>
 </div>
 

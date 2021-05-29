@@ -7,8 +7,8 @@ const takeNote = () => {
             console.log(result);
             // object representing a note
             note = {
-                text: document.getElementById("note").value,
-                img: image
+                caption: document.getElementById("note").value,
+                base64: image
             }
             document.getElementById("note").innerHTML = "";
             // updating saved notes
@@ -17,7 +17,7 @@ const takeNote = () => {
             chrome.storage.local.set({'notes': retrievedNotes}, function() {
                 console.log("new note has been logged!")
             });
-        })
+        });
     });
 
 }
@@ -25,7 +25,7 @@ const takeNote = () => {
 const viewSS = () => {
     chrome.storage.local.get(['notes'], function(result) {
         const div = document.createElement('div');
-        div.textContent = result.notes[result.notes.length - 1].img;
+        div.textContent = result.notes[result.notes.length - 1].base64;
         document.body.appendChild(div);
         console.log(result.image);
         
