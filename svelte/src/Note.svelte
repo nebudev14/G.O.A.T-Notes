@@ -5,7 +5,7 @@
 </script>
 
 <div class="note-view">
-    <img src="{base64}" alt="captioned media">
+    <img src="{base64}" alt="captioned media" class="note-image">
     <h1>{caption}</h1>
 </div>
 
@@ -17,5 +17,8 @@
         margin: 10px 32px 10px 21rem;
         padding: 12px;
         color: white;
+    }
+    .note-image {
+        max-width: 900px;
     }
 </style>
