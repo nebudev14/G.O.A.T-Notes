@@ -2,22 +2,23 @@
 
 const takeNote = () => {
     
-    const takeSS = () => chrome.tabs.captureVisibleTab(null, {}, function(image) {
-        return image;
+    chrome.tabs.captureVisibleTab(null, {}, function(image) {
+        chrome.storage.local.get(['notes'], function(result) {
+            console.log(result);
+            // object representing a note
+            note = {
+                text: document.getElementById("note").value,
+                img: image
+            }
+            document.getElementById("note").innerHTML = "";
+            // updating saved notes
+            let retrievedNotes = result.notes;
+            retrievedNotes.push(note)
+            chrome.storage.local.set({'notes': retrievedNotes}, function() {
+                console.log("new note has been logged!")
+            });
+        })
     });
-    
-    chrome.storage.local.get(['notes'], function(result) {
-        console.log(result.notes);
-        note = {
-            img: takeSS()
-        }
-        let retrievedNotes = result.notes;
-        retrievedNotes.push("test")
-        chrome.storage.local.set({'notes': retrievedNotes}, function() {
-            console.log("new note has been logged!")
-        });
-        
-    })
 
 }
 
