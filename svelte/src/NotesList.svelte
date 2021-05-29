@@ -17,7 +17,7 @@
             <li class="{selected == i ? 'selected' : ''}"
             
             on:click={() => handleClick(i)}>
-                {note.caption}
+                {note.caption == "" ? "Unnamed Note" : note.caption}
             </li>
         {/each}
     </ul>
