@@ -8,14 +8,15 @@ const takeNote = () => {
     
     chrome.storage.local.get(['notes'], function(result) {
         console.log(result.notes);
-        // note = {
-        //     img: takeSS()
-        // }
-        // result.push(note);
-        // chrome.storage.local.set({'notes': result}, function() {
-        //     console.log("logged new note for existing user");
-        //     console.log(result);
-        // });
+        note = {
+            img: takeSS()
+        }
+        let retrievedNotes = result.notes;
+        retrievedNotes.push("test")
+        chrome.storage.local.set({'notes': retrievedNotes}, function() {
+            console.log("new note has been logged!")
+        });
+        
     })
 
 }
