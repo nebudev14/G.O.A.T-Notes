@@ -1,6 +1,4 @@
 <script>
-    // huge json, will remove later
-    import images from '../base64strings.json';
     import Note from './Note.svelte';
     let notes = [""];
     chrome.storage.local.get(['notes'], function(result) {
@@ -21,7 +19,7 @@
             </li>
         {/each}
     </ul>
-    <Note caption={notes[selected].caption} base64={notes[selected].base64}/>
+    <Note caption={notes[selected].caption} base64={notes[selected].base64} url={notes[selected].url} time={notes[selected].time}/>
 </div>
 
 <style>

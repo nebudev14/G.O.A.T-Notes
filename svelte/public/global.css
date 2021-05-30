@@ -16,6 +16,10 @@
     --transition-speed: 200ms;
 }
 
+::selection {
+  background-color: #1DA57A;
+}
+
 html {background-color: black}
 
 main {

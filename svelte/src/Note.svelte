@@ -2,11 +2,22 @@
     // A note is defined as an image with a caption
     export let caption;
     export let base64;
+    export let url;
+    export let time;
 </script>
 
 <div class="note-view">
     <img src="{base64}" alt="captioned media" class="note-image">
     <h1>{caption}</h1>
+    <br>
+    <h3>
+        <a href="{url}" target="_blank">
+            {url}
+        </a>
+    </h3>
+    <br>
+    <br>
+    <p>{time}</p>
 </div>
 
 <style>
@@ -20,5 +31,13 @@
     }
     .note-image {
         max-width: 900px;
+    }
+
+    a {
+        color: #1DA57A;
+    }
+
+    p {
+        color: gray;
     }
 </style>
