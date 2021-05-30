@@ -41,10 +41,10 @@ const takeNote = () => {
 
 const viewSS = () => {
     chrome.storage.local.get(['notes'], function(result) {
-        const div = document.createElement('div');
-        div.textContent = result.notes[result.notes.length - 1].base64;
-        document.body.appendChild(div);
-        console.log(result.image);
+        const image = document.getElementById('ss');
+        const caption = document.getElementById('caption');
+        image.src = result.notes[result.notes.length - 1].base64;
+        caption.innerHTML = result.notes[result.notes.length - 1].caption;
         
     });
 }

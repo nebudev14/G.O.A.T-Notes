@@ -5,19 +5,8 @@
 :root {
     --ff-primary: 'Raleway', sans-serif;
     
-    --clr-light: #fff;
-    --clr-dark: #303030;
-    --clr-accent: #ff00c3;
-}
-
-#note {
-    width:300px;
-    padding:10px;
-    margin: 10px 0;
-    border-radius: 30px;
-    outline: 0;
-    font-family: var(--ff-primary);
-    
+    --clr-accent: #1DA57A;
+    --clr-accent-dark: #17815f;
 }
 
 button {
@@ -27,7 +16,7 @@ button {
   
     padding:10px;
     border:none;
-    background-color:#1DA57A;
+    background-color: var(--clr-accent);
     color:#fff;
     font-weight:400;
     border-radius:5px;
@@ -38,9 +27,25 @@ button {
 }
 
 button:hover {
-    background-color: #17815f;
+    background-color: var(--clr-accent-dark);
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     transform: scale(1.02);
     cursor: pointer;
 }
 
+#ss {
+    max-width: 98%;
+}
+
+#caption {
+    font-family: var(--ff-primary);
+}
+
+#note {
+    width:300px;
+    padding:10px;
+    margin: 10px 0;
+    border-radius: 30px;
+    outline: 0;
+    font-family: var(--ff-primary);
+}
