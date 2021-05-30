@@ -1,4 +1,6 @@
 <script>
+import { get_slot_changes } from 'svelte/internal';
+
     import Note from './Note.svelte';
     let notes = [""];
     chrome.storage.local.get(['notes'], function(result) {
@@ -7,6 +9,12 @@
     console.log(notes);  
     const handleClick = (e) => selected = e;
     let selected = 0;
+
+    chrome.storage.onChanged.addListener((change, area) => {
+        if (change.notes) {
+            notes = change.notes.newValue;
+        }
+    })
 </script>
 
 <div class="container">

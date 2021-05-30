@@ -4,20 +4,39 @@
     export let base64;
     export let url;
     export let time;
+
+    let modalActive = false;
+
+    const triggerModal = (bool) => {
+        console.log("The Modal is now: " + modalActive)
+        modalActive = bool;
+    }
 </script>
 
 <div class="note-view">
-    <img src="{base64}" alt="captioned media" class="note-image">
+    <img
+        src={base64}
+        alt={"captioned media: " + caption}
+        class="note-image"
+        id="active-image"
+        on:click={() => triggerModal(true)}
+    />
     <h1>{caption}</h1>
-    <br>
+    <br />
     <h3>
-        <a href="{url}" target="_blank">
+        <a href={url} target="_blank">
             {url}
         </a>
     </h3>
-    <br>
-    <br>
+    <br />
+    <br />
     <p>{time}</p>
+
+    <div id="myModal" class="modal {modalActive == true ? 'modal-active' : ''}" on:click={() => triggerModal(false)}>
+        <img class="modal-content" src={base64} alt={caption}>
+      
+        <div id="caption">{caption}</div>
+    </div>
 </div>
 
 <style>
@@ -31,13 +50,51 @@
     }
     .note-image {
         max-width: 900px;
+        cursor: pointer;
     }
 
     a {
-        color: #1DA57A;
+        color: #1da57a;
     }
 
     p {
         color: gray;
     }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.7);
+    }
+
+    .modal-active {
+        display: block !important;
+    }
+
+    .modal-content, #caption {
+        -webkit-animation-name: zoom;
+        -webkit-animation-duration: 0.2s;
+        max-width: 50%;
+        animation-name: zoom;
+        animation-duration: 0.2s;
+        z-index: 2;
+    }
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
 </style>
