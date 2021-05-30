@@ -1,0 +1,46 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+:root {
+    --ff-primary: 'Raleway', sans-serif;
+    
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent: #ff00c3;
+}
+
+#note {
+    width:300px;
+    padding:10px;
+    margin: 10px 0;
+    border-radius: 30px;
+    outline: 0;
+    font-family: var(--ff-primary);
+    
+}
+
+button {
+    font-family: var(--ff-primary);
+    appearance:none;
+    -webkit-appearance:none;
+  
+    padding:10px;
+    border:none;
+    background-color:#1DA57A;
+    color:#fff;
+    font-weight:400;
+    border-radius:5px;
+    margin: 5px;
+    width:95%;
+    align-items: center;
+    transition-duration: 0.4s;    
+}
+
+button:hover {
+    background-color: #17815f;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
